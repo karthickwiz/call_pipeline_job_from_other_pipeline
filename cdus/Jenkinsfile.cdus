@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+     stages {
+        stage('Initialize') {
+            steps {
+                echo 'setting...'   
+                 bat 'set'
+            }
+        }
+       stage('build') {
+          steps {                                
+             bat 'echo building....'
+             bat 'gradle build'
+               bat 'echo builded....'    
+            
+          }
+       }
+    }
+    post { 
+        always { 
+           
+             echo 'CDUS build is Completed!'
+        }
+    }
+}
