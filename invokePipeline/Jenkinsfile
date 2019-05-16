@@ -17,14 +17,14 @@ pipeline {
        }
          stage ("invoking clsd pipeline") {
             steps {
-                echo "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+                echo "clsddddddddddddddddddddddddddd"
                 build job: 'clsd'
             }
         }
          
            stage ("invoking cdus pipeline") {
             steps {
-           echo "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+           echo "cdussssssssssssssssssssssssssssssssssssssss"
                 build job: 'cdus'
             }
         }
