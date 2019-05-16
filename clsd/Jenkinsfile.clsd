@@ -16,10 +16,42 @@ pipeline {
         }
        stage('API_COMPATIBILITY_STEP_REQUIRED') {
         when {
-                environment name: 'CODE_SCANS_REQUIRED', value: 'true'
+                environment name: 'API_COMPATIBILITY_STEP_REQUIRED', value: 'true'
             }   
           steps {                                
               echo "API_COMPATIBILITY_STEP_REQUIRED.........................."    
+          }
+       }
+        stage('DB_ROLLBACK_STEP_REQUIRED') {
+        when {
+                environment name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true'
+            }   
+          steps {                                
+              echo "DB_ROLLBACK_STEP_REQUIRED.........................."    
+          }
+       }
+       stage('DEPLOY_TO_TEST_STEP_REQUIRED') {
+        when {
+                environment name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: 'true'
+            }   
+          steps {                                
+              echo "DEPLOY_TO_TEST_STEP_REQUIRED.........................."    
+          }
+       }
+        stage('PUBLISH_RELEASE') {
+        when {
+                environment name: 'PUBLISH_RELEASE', value: 'true'
+            }   
+          steps {                                
+              echo "PUBLISH_RELEASE.........................."    
+          }
+       }
+        stage('CODE_SCANS_REQUIRED') {
+        when {
+                environment name: 'CODE_SCANS_REQUIRED', value: 'true'
+            }   
+          steps {                                
+              echo "CODE_SCANS_REQUIRED.........................."    
           }
        }
           stage('build') {
