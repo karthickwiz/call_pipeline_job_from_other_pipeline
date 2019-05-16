@@ -20,6 +20,7 @@ pipeline {
             }   
           steps {                                
               echo "API_COMPATIBILITY_STEP_REQUIRED.........................."    
+               input message: "Do you want to proceed?"
           }
        }
         stage('DB_ROLLBACK_STEP_REQUIRED') {
