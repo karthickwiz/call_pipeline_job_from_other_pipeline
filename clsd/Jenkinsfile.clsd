@@ -1,5 +1,12 @@
 pipeline {
     agent any
+     parameters {
+        booleanParam(name: 'API_COMPATIBILITY_STEP_REQUIRED', defaultValue: false, description: 'Execute API/Contract Tests')
+        booleanParam(name: 'DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
+        booleanParam(name: 'DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
+        booleanParam(name: 'PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
+        booleanParam(name: 'CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
+    }
      stages {
         stage('Initialize') {
             steps {
