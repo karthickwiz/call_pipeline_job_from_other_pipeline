@@ -21,6 +21,13 @@ pipeline {
                 build job: 'clsd'
             }
         }
+         
+           stage ("invoking cdus pipeline") {
+            steps {
+                echo "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+                build job: 'cdus'
+            }
+        }
     }
     post { 
         always { 
