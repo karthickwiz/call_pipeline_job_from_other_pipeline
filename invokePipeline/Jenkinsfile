@@ -2,10 +2,10 @@ pipeline {
     agent any
      parameters {
         booleanParam(name: 'CLSD_API_COMPATIBILITY_STEP_REQUIRED', defaultValue: false, description: 'Execute API/Contract Tests')
-        booleanParam(name: 'CLSD - DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
-        booleanParam(name: 'CLSD - DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
-        booleanParam(name: 'CLSD - PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
-        booleanParam(name: 'CLSD - CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
+        booleanParam(name: 'CLSD_DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
+        booleanParam(name: 'CLSD_DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
+        booleanParam(name: 'CLSD_PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
+        booleanParam(name: 'CLSD_CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
     }
      stages {
         stage('Initialize') {
@@ -25,7 +25,7 @@ pipeline {
          stage ("invoking clsd pipeline") {
             steps {
                 echo "clsddddddddddddddddddddddddddd"
-               build job: "clsd/master",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CLSD_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true'],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: 'true'],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: 'true'],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: 'true']], propagate: true, wait: true
+               build job: "clsd/master",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CLSD_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CLSD_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CLSD_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CLSD_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CLSD_CODE_SCANS_REQUIRED]], propagate: true, wait: true
                 
             }
         }
