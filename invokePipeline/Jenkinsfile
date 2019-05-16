@@ -17,9 +17,8 @@ pipeline {
        }
          stage ("invoking clsd pipeline") {
             steps {
-                build job: 'clsd', parameters: [
-                string(name: 'appId', value: "12")
-                ]
+                echo "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+                build job: 'clsd'
             }
         }
     }
