@@ -18,7 +18,7 @@ pipeline {
          stage ("invoking clsd pipeline") {
             steps {
                 echo "clsddddddddddddddddddddddddddd"
-                build job: "clsd/master",parameters: [booleanParam(name: 'CODE_SCANS_REQUIRED', value: 'true')], propagate: true, wait: true
+                build job: "clsd/master",parameters: [[booleanParam(name: 'API_COMPATIBILITY_STEP_REQUIRED', value: 'true')],[booleanParam(name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true')],[booleanParam(name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true')],[booleanParam(name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: 'true')],[booleanParam(name: 'PUBLISH_RELEASE', value: 'true')],[booleanParam(name: 'CODE_SCANS_REQUIRED', value: 'true')]], propagate: true, wait: true
             }
         }
          stage ("invoking cdus pipeline") {
