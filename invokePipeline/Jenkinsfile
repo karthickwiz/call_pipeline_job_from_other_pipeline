@@ -22,12 +22,7 @@ pipeline {
             }
         }
          
-           stage ("invoking cdus pipeline") {
-            steps {
-           echo "cdussssssssssssssssssssssssssssssssssssssss"
-                build job: 'cdus'
-            }
-        }
+          
     }
     post { 
         always { 
