@@ -25,7 +25,7 @@ pipeline {
          stage ("invoking clsd pipeline") {
             steps {
                 echo "clsddddddddddddddddddddddddddd"
-               build job: "clsd/master",parameters: [[$class: 'StringParameterValue', name: '${CLSD - API_COMPATIBILITY_STEP_REQUIRED}', value: 'true'], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true'],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: 'true'],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: 'true'],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: 'true']], propagate: true, wait: true
+               build job: "clsd/master",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: '${CLSD - API_COMPATIBILITY_STEP_REQUIRED}'], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true'],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: 'true'],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: 'true'],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: 'true']], propagate: true, wait: true
                 
             }
         }
