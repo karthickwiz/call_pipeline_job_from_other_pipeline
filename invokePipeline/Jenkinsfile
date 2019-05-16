@@ -21,7 +21,7 @@ pipeline {
                 build job: "clsd/master", propagate: true, wait: true
             }
         }
-         stage ("invoking clsd pipeline") {
+         stage ("invoking cdus pipeline") {
             steps {
                 echo "cdussssssssssssssssssssssssss"
                 build job: "cdus/master", propagate: true, wait: true
