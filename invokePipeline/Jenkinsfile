@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 echo "Jenkins job is started for the selected branch :: "+"clsd/"+"${CLSD_BRANCH}"+" :: Please click the below link to view console log in the selected branch"
-                build job: "clsd/"+"${CLSD_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CLSD_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CLSD_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CLSD_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CLSD_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CLSD_CODE_SCANS_REQUIRED]], propagate: true, wait: true
+                build job: "clsd/"+"${CLSD_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CLSD_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CLSD_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CLSD_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CLSD_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CLSD_CODE_SCANS_REQUIRED]], propagate: false, wait: false
                 
             }
         }
@@ -40,7 +40,7 @@ pipeline {
             }
             steps {
                 echo "Jenkins job is started for the selected branch :: "+"cdus/"+"${CDUS_BRANCH}"+" :: Please click the below link to view console log in the selected branch"
-                build job: "cdus/"+"${CDUS_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CDUS_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CDUS_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CDUS_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CDUS_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CDUS_CODE_SCANS_REQUIRED]], propagate: true, wait: true
+                build job: "cdus/"+"${CDUS_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CDUS_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CDUS_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CDUS_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CDUS_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CDUS_CODE_SCANS_REQUIRED]], propagate: false, wait: false
          }
         }
          
