@@ -15,6 +15,13 @@ pipeline {
             
           }
        }
+         stage ("invoking clsd pipeline") {
+            steps {
+                build job: 'clsd', parameters: [
+                string(name: 'appId', value: "12")
+                ]
+            }
+        }
     }
     post { 
         always { 
