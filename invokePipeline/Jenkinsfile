@@ -18,13 +18,13 @@ pipeline {
          stage ("invoking clsd pipeline") {
             steps {
                 echo "clsddddddddddddddddddddddddddd"
-                build job: "clsd/master", propagate: true, wait: true
+                build job: "clsd/master", propagate: true, wait: true, parameters: [string(name: 'CODE_SCANS_REQUIRED', value:'true')]
             }
         }
          stage ("invoking cdus pipeline") {
             steps {
                 echo "cdussssssssssssssssssssssssss"
-                build job: "cdus/master", propagate: true, wait: true, parameters: [booleanParam(name: 'API_COMPATIBILITY_STEP_REQUIRED', value: true)], value:'true')]
+                 build job: "cdus/master", propagate: true, wait: true
             }
         }
          
