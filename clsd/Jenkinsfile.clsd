@@ -14,7 +14,15 @@ pipeline {
                  bat 'set'
             }
         }
-       stage('build') {
+       stage('API_COMPATIBILITY_STEP_REQUIRED') {
+        when {
+                environment name: 'CODE_SCANS_REQUIRED', value: 'true'
+            }   
+          steps {                                
+              echo "API_COMPATIBILITY_STEP_REQUIRED.........................."    
+          }
+       }
+          stage('build') {
           steps {                                
              bat 'echo building....'
              bat 'gradle build'
