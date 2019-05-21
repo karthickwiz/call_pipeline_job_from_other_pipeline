@@ -12,8 +12,8 @@ pipeline {
        
           steps {                               
              bat 'cd C:/Karthick/Workspace/PCF/demo-5'		
-			bat 'echo pcf login..' 		
-			bat 'script.bat'
+			bat 'echo pcf login..' 	
+			bat 'start cmd.exe /c C:/Karthick/Workspace/PCF/demo-5/script.bat'		
 			bat 'echo pushing...'
 			bat 'cf push'          
           }
