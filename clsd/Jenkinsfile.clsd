@@ -13,7 +13,8 @@ pipeline {
           steps {                               
              bat 'cd C:/Karthick/Workspace/PCF/demo-5'		
 			bat 'echo pcf login..' 	
-			bat 'start cmd.exe /c C:/Karthick/Workspace/PCF/demo-5/script.bat'		
+			bat 'start cmd.exe /c C:/Karthick/Workspace/PCF/demo-5/script.bat'	
+			input 'done?'
 			bat 'echo pushing...'
 			bat 'cf push -f C:/Karthick/Workspace/PCF/demo-5/manifest.yml'          
           }
