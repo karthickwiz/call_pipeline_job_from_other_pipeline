@@ -1,69 +1,25 @@
 pipeline {
     agent any
-     parameters {
-        booleanParam(name: 'API_COMPATIBILITY_STEP_REQUIRED', defaultValue: false, description: 'Execute API/Contract Tests')
-        booleanParam(name: 'DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
-        booleanParam(name: 'DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
-        booleanParam(name: 'PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
-        booleanParam(name: 'CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
-    }
-     stages {
+  
+  stages {
         stage('Initialize') {
             steps {
                 echo 'setting...'   
                  bat 'set'
             }
         }
-       stage('API_COMPATIBILITY_STEP_REQUIRED') {
-        when {
-                environment name: 'API_COMPATIBILITY_STEP_REQUIRED', value: 'true'
-            }   
+       stage('push') {
+       
           steps {                                
-              echo "API_COMPATIBILITY_STEP_REQUIRED.........................."    
-               input message: "Do you want to proceed?"
+               
+		cd C:\Karthick\Workspace\PCF\demo-5		
+			echo "pcf login.." 		
+			script.bat
+			echo "pushing..."
+			cf push             
           }
        }
-        stage('DB_ROLLBACK_STEP_REQUIRED') {
-        when {
-                environment name: 'DB_ROLLBACK_STEP_REQUIRED', value: 'true'
-            }   
-          steps {                                
-              echo "DB_ROLLBACK_STEP_REQUIRED.........................."    
-          }
-       }
-       stage('DEPLOY_TO_TEST_STEP_REQUIRED') {
-        when {
-                environment name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: 'true'
-            }   
-          steps {                                
-              echo "DEPLOY_TO_TEST_STEP_REQUIRED.........................."    
-          }
-       }
-        stage('PUBLISH_RELEASE') {
-        when {
-                environment name: 'PUBLISH_RELEASE', value: 'true'
-            }   
-          steps {                                
-              echo "PUBLISH_RELEASE.........................."    
-          }
-       }
-        stage('CODE_SCANS_REQUIRED') {
-        when {
-                environment name: 'CODE_SCANS_REQUIRED', value: 'true'
-            }   
-          steps {                                
-              echo "CODE_SCANS_REQUIRED.........................."    
-          }
-       }
-          stage('build') {
-          steps {                                
-             bat 'echo building....'
-             bat 'gradle build'
-               bat 'echo builded....'    
-            
-          }
-       }
-    }
+        
     post { 
         always { 
            
