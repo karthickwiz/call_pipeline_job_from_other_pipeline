@@ -10,13 +10,8 @@ pipeline {
         }
        stage('push') {
        
-          steps {                                
-               
-		bat 'cd C:/Karthick/Workspace/PCF/demo-5'		
-			bat 'echo pcf login..' 		
-			bat 'script.bat'
-			bat 'echo pushing...'
-			bat 'cf push'             
+          steps {                               
+              echo "heoolooo"            
           }
        }
         
@@ -27,4 +22,4 @@ pipeline {
         }
     }
 }
-}
+
