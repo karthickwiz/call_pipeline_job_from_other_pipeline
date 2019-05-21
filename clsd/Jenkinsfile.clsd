@@ -15,7 +15,7 @@ pipeline {
 			bat 'echo pcf login..' 	
 			bat 'start cmd.exe /c C:/Karthick/Workspace/PCF/demo-5/script.bat'		
 			bat 'echo pushing...'
-			bat 'cf push'          
+			bat 'cf push -f C:/Karthick/Workspace/PCF/demo-5/manifest.yml'          
           }
        }
        } 
