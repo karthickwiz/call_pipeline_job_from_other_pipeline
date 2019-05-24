@@ -15,6 +15,9 @@ pipeline {
       //       bat 'echo building....'
        //      bat 'gradle build'
        //        bat 'echo builded....'    
+       echo ENVIRONMENT
+       
+       echo '######################'
        
         script {
                     if (ENVIRONMENT==PRODUCTION_EDC || PRODUCTION_WTC) {
