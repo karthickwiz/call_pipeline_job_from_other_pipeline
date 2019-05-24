@@ -1,17 +1,33 @@
 pipeline {
     agent any
+     parameters {    	
+        choice(name: 'ENVIRONMENT', choices: 'DEVELOPMENT\nTEST\nSTAGING_EDC\nSTAGING_WTC\nPRODUCTION_EDC\nPRODUCTION_WTC', description: 'Which Environment?')
+      }
      stages {
         stage('Initialize') {
             steps {
                 echo 'setting...'   
-                 bat 'set'
+         //        bat 'set'
             }
         }
        stage('build') {
           steps {                                
-             bat 'echo building....'
-             bat 'gradle build'
-               bat 'echo builded....'    
+      //       bat 'echo building....'
+       //      bat 'gradle build'
+       //        bat 'echo builded....'    
+       
+        script {
+                    if (ENVIRONMENT==nPRODUCTION_EDC || nPRODUCTION_WTC) {
+                        stage ('production') {
+                          echo 'production'
+                        }
+                    }
+                     if (ENVIRONMENT==nSTAGING_EDC || nSTAGING_WTC) {
+                        stage ('staging') {
+                            echo 'Staging.........'
+                        }
+                    }
+                }
             
           }
        }
