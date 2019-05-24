@@ -21,14 +21,14 @@ pipeline {
        
         script {
                     if (ENVIRONMENT=='PRODUCTION_EDC' || 'PRODUCTION_WTC') {
-                        stage ('production') {
-                          echo 'production'
-                        }
+                    
+                          echo 'production********************'
+                    
                     }
                      if (ENVIRONMENT=='STAGING_EDC' || 'STAGING_WTC') {
-                        stage ('staging') {
+                   
                             echo 'Staging.........'
-                        }
+                      
                     }
                 }
             
