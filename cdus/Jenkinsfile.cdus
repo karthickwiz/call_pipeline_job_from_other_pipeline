@@ -15,7 +15,7 @@ pipeline {
       //       bat 'echo building....'
        //      bat 'gradle build'
        //        bat 'echo builded....'    
-     //  echo ENVIRONMENT
+     //  echo 'This is .... $ENVIRONMENT'
        
       // echo '######################'
        
