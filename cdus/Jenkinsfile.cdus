@@ -15,17 +15,17 @@ pipeline {
       //       bat 'echo building....'
        //      bat 'gradle build'
        //        bat 'echo builded....'    
-       echo ENVIRONMENT
+     //  echo ENVIRONMENT
        
-       echo '######################'
+      // echo '######################'
        
         script {
-                    if (ENVIRONMENT=='PRODUCTION_EDC' || 'PRODUCTION_WTC') {
+                    if (ENVIRONMENT=='PRODUCTION_EDC' || ENVIRONMENT=='PRODUCTION_WTC') {
                     
                           echo 'production********************'
                     
                     }
-                     if (ENVIRONMENT=='STAGING_EDC' || 'STAGING_WTC') {
+                     if (ENVIRONMENT=='STAGING_EDC' || ENVIRONMENT=='STAGING_WTC') {
                    
                             echo 'Staging.........'
                       
