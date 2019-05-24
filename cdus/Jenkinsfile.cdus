@@ -17,12 +17,12 @@ pipeline {
        //        bat 'echo builded....'    
        
         script {
-                    if (ENVIRONMENT==nPRODUCTION_EDC || nPRODUCTION_WTC) {
+                    if (ENVIRONMENT==PRODUCTION_EDC || PRODUCTION_WTC) {
                         stage ('production') {
                           echo 'production'
                         }
                     }
-                     if (ENVIRONMENT==nSTAGING_EDC || nSTAGING_WTC) {
+                     if (ENVIRONMENT==STAGING_EDC || STAGING_WTC) {
                         stage ('staging') {
                             echo 'Staging.........'
                         }
