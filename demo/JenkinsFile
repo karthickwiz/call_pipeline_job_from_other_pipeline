@@ -16,7 +16,7 @@ pipeline {
 			bat 'echo login..' 	 
           }
        }
-       } 
+     
        
        stage('PerformanceTest execution'){
 		steps{
@@ -33,7 +33,7 @@ pipeline {
 				
 		}
 	} 
-       
+     }     
     post { 
         always { 
            
