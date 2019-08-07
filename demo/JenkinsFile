@@ -26,13 +26,13 @@ pipeline {
 	
 	}
 	
-	//stage('Performance Report publishing'){
-	//	steps{
-	//			echo "Report publishing started"
-	//			perfReport filterRegex: '', sourceDataFiles: 'PerformanceResults.html'
+	stage('Performance Report publishing'){
+		steps{
+				echo "Report publishing started"
+				perfReport filterRegex: '', sourceDataFiles: 'PerformanceResults.html'
 				
-	//	}
-	// } 
+		}
+	 } 
      }     
     post { 
         always { 
