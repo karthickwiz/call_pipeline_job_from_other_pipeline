@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+  
+  stages {
+        stage('Initialize') {
+            steps {
+                echo 'setting...'   
+                 bat 'set'
+            }
+        }
+
+       stage('push') {
+       
+          steps {                               
+            // bat 'cd C:/Karthick/Workspace/PCF/demo-5'		
+			bat 'echo login..' 	 
+          }
+       }
+       } 
+    post { 
+        always { 
+           
+             echo 'Build is completed Successfully!'
+        }
+    }
+}
