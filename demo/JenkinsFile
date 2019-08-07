@@ -21,7 +21,9 @@ pipeline {
        stage('PerformanceTest execution'){
 		steps{
 		echo "Jmeter started"
-		bat "C:\\Users\\karthick.k\\Downloads\\apache-jmeter-5.1.1\\bin\\jmeter.bat -Jjmeter.save.saveservice.output_format=xml -n -t C:\\Program Files (x86)\\Jenkins\\workspace\\POC_JMeter_master\\demo\\performance.jmx -l PerformanceResults.html>"
+		bat 'C:/Users/karthick.k/Downloads/apache-jmeter-5.1.1/bin/jmeter.bat -n -t C:/Users/karthick.k/Desktop/jmeter/performance.jmx -l PerformanceResults.html'
+		
+		echo "Jmeter ended"
 		}
 	
 	}
