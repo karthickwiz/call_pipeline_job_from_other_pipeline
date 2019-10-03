@@ -22,7 +22,7 @@ pipeline {
             ])
         ])
         echo "Valueeeee"
-        echo ${hello}
+        echo hello
         }
         }
     }
