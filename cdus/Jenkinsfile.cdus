@@ -12,6 +12,7 @@ pipeline {
         }
       stage('API_COMPATIBILITY_STEP_REQUIRED') {
         steps {
+         script {
         properties([
             parameters([string(
                 defaultValue: '', 
@@ -22,6 +23,7 @@ pipeline {
         ])
         echo "Valueeeee"
         echo API_COMPATIBILITY_STEP_REQUIRED
+        }
         }
     }
     }
