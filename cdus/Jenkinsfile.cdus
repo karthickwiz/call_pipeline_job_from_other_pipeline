@@ -11,9 +11,14 @@ pipeline {
             }
         }
        stage('build') {
+       echo oooooooooooooooooooooooooo
           steps {    
+          
+           script {
+             echo API_COMPATIBILITY_STEP_REQUIRED         
+        }
           echo "Test...."
-          echo API_COMPATIBILITY_STEP_REQUIRED
+        
       //       bat 'echo building....'
        //      bat 'gradle build'
        //        bat 'echo builded....'    
