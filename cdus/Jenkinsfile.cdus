@@ -15,7 +15,7 @@ pipeline {
           steps {    
           
            script {
-             echo ${API_COMPATIBILITY_STEP_REQUIRED}        
+             echo $API_COMPATIBILITY_STEP_REQUIRED       
         }
           echo "Test...."
         
