@@ -1,19 +1,19 @@
 pipeline {
     agent any
      parameters {
-        choice(name: 'CLSD_BRANCH', choices: '    \n1910\n1913\n1920\nmaster', description: 'Please select the branch name of CLSD.')
-        booleanParam(name: 'CLSD_API_COMPATIBILITY_STEP_REQUIRED', defaultValue: false, description: 'Execute API/Contract Tests')
-        booleanParam(name: 'CLSD_DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
-        booleanParam(name: 'CLSD_DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
-        booleanParam(name: 'CLSD_PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
-        booleanParam(name: 'CLSD_CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
+   //     choice(name: 'CLSD_BRANCH', choices: '    \n1910\n1913\n1920\nmaster', description: 'Please select the branch name of CLSD.')
+ //       booleanParam(name: 'CLSD_API_COMPATIBILITY_STEP_REQUIRED', defaultValue: false, description: 'Execute API/Contract Tests')
+//        booleanParam(name: 'CLSD_DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
+//        booleanParam(name: 'CLSD_DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
+//        booleanParam(name: 'CLSD_PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
+//        booleanParam(name: 'CLSD_CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
          
         choice(name: 'CDUS_BRANCH', choices: '    \n1910\n1913\n1920\nmaster', description: 'Please select the branch name of CDUS.')
         booleanParam(name: 'CDUS_API_COMPATIBILITY_STEP_REQUIRED', defaultValue: false, description: 'Execute API/Contract Tests')
-        booleanParam(name: 'CDUS_DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
-        booleanParam(name: 'CDUS_DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
-        booleanParam(name: 'CDUS_PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
-        booleanParam(name: 'CDUS_CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
+ //       booleanParam(name: 'CDUS_DB_ROLLBACK_STEP_REQUIRED', defaultValue: false, description: 'Test latest prod version against DB changes and dependecies')
+ //       booleanParam(name: 'CDUS_DEPLOY_TO_TEST_STEP_REQUIRED', defaultValue: false, description: 'Deploy to Release')
+ //       booleanParam(name: 'CDUS_PUBLISH_RELEASE', defaultValue: false, description: 'Publish Release Artifact to Maven Repo')
+  //      booleanParam(name: 'CDUS_CODE_SCANS_REQUIRED', defaultValue: false, description: 'Execute Code Scans')
     }
      stages {
         stage('Initialize') {
@@ -28,8 +28,9 @@ pipeline {
                 expression { params.CLSD_BRANCH != '    ' }
             }
             steps {
-                echo "Jenkins job is started for the selected branch :: "+"clsd/"+"${CLSD_BRANCH}"+" :: Please click the below link to view console log in the selected branch"
-                build job: "clsd/"+"${CLSD_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CLSD_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CLSD_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CLSD_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CLSD_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CLSD_CODE_SCANS_REQUIRED]], propagate: false, wait: false
+                echo "blocked..."
+      //          echo "Jenkins job is started for the selected branch :: "+"clsd/"+"${CLSD_BRANCH}"+" :: Please click the below link to view console log in the selected branch"
+     //           build job: "clsd/"+"${CLSD_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CLSD_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CLSD_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CLSD_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CLSD_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CLSD_CODE_SCANS_REQUIRED]], propagate: false, wait: false
                 
             }
         }
@@ -40,7 +41,7 @@ pipeline {
             }
             steps {
                 echo "Jenkins job is started for the selected branch :: "+"cdus/"+"${CDUS_BRANCH}"+" :: Please click the below link to view console log in the selected branch"
-                build job: "cdus/"+"${CDUS_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CDUS_API_COMPATIBILITY_STEP_REQUIRED], [$class: 'StringParameterValue', name: 'DB_ROLLBACK_STEP_REQUIRED', value: CDUS_DB_ROLLBACK_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'DEPLOY_TO_TEST_STEP_REQUIRED', value: CDUS_DEPLOY_TO_TEST_STEP_REQUIRED],[$class: 'StringParameterValue', name: 'PUBLISH_RELEASE', value: CDUS_PUBLISH_RELEASE],[$class: 'StringParameterValue', name: 'CODE_SCANS_REQUIRED', value: CDUS_CODE_SCANS_REQUIRED]], propagate: false, wait: false
+                build job: "cdus/"+"${CDUS_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CDUS_API_COMPATIBILITY_STEP_REQUIRED]], propagate: false, wait: false
          }
         }
          
