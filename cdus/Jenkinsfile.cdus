@@ -11,27 +11,17 @@ pipeline {
             }
         }
        stage('build') {
-          steps {                                
+          steps {    
+          echo "Test...."
+          echo API_COMPATIBILITY_STEP_REQUIRED
       //       bat 'echo building....'
        //      bat 'gradle build'
        //        bat 'echo builded....'    
-       echo 'This is .... ' + ${env.ENVIRONMENT}
+   //    echo 'This is .... ' + ${env.CDUS_BRANCH}
        
       // echo '######################'
        
-        script {
-                    if (ENVIRONMENT=='PRODUCTION_EDC' || ENVIRONMENT=='PRODUCTION_WTC') {
-                    
-                          echo 'production********************'
-                    
-                    }
-                     if (ENVIRONMENT=='STAGING_EDC' || ENVIRONMENT=='STAGING_WTC') {
-                   
-                            echo 'Staging.........'
-                      
-                    }
-                }
-            
+                  
           }
        }
     }
