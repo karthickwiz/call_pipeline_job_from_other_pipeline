@@ -35,17 +35,29 @@ pipeline {
             }
         }
          
-         stage ("invoking cdus pipeline") {
-              when {              
-                expression { params.CDUS_BRANCH != '    ' }
-            }
-            steps {
-                echo "Jenkins job is started for the selected branch :: "+"cdus/"+"${CDUS_BRANCH}"+" :: Please click the below link to view console log in the selected branch"
-                build job: "cdus/"+"${CDUS_BRANCH}",parameters: [[$class: 'StringParameterValue', name: 'API_COMPATIBILITY_STEP_REQUIRED', value: CDUS_API_COMPATIBILITY_STEP_REQUIRED]], propagate: false, wait: false
-         }
-        }
+           stage('Build parameters') {
+        properties(
+            [parameters(
+                [string(
+                    defaultValue: '***', 
+                    description: '', 
+                    name: 'version', 
+                    trim: false)
+                ])
+            ])
+    }
+    echo env.BUILD_NUMBER
+    def Latest_Build_Number = env.BUILD_NUMBER
+    build(
+        job: 'Downstream', 
+        parameters: [
+            [$class: 'StringParameterValue', 
+             name: 'Latest_Build_Number', 
+             value: env.BUILD_NUMBER, 
+             propagate: false]
+        ]
+    )
          
-          
     }
     post { 
         always { 
