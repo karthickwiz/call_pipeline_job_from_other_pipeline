@@ -10,17 +10,17 @@ pipeline {
          //        bat 'set'
             }
         }
-      stage('BNAME') {
+      stage('API_COMPATIBILITY_STEP_REQUIRED') {
         properties([
             parameters([string(
                 defaultValue: '', 
                 description: '', 
-                name: 'BNAME', 
+                name: 'API_COMPATIBILITY_STEP_REQUIRED', 
                 trim: false)
             ])
         ])
         echo "Valueeeee"
-        echo BNAME
+        echo API_COMPATIBILITY_STEP_REQUIRED
     }
     }
     post { 
