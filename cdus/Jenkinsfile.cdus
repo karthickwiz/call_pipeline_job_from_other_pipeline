@@ -10,17 +10,17 @@ pipeline {
          //        bat 'set'
             }
         }
-      stage('Downstream') {
+      stage('BNAME') {
         properties([
             parameters([string(
                 defaultValue: '', 
                 description: '', 
-                name: 'Latest_Build_Number', 
+                name: 'BNAME', 
                 trim: false)
             ])
         ])
         echo "Valueeeee"
-        echo Latest_Build_Number
+        echo BNAME
     }
     }
     post { 
