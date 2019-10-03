@@ -10,25 +10,18 @@ pipeline {
          //        bat 'set'
             }
         }
-       stage('build') {
-   //    echo oooooooooooooooooooooooooo
-          steps {    
-          
-           script {
-             echo $API_COMPATIBILITY_STEP_REQUIRED       
-        }
-          echo "Test...."
-        
-      //       bat 'echo building....'
-       //      bat 'gradle build'
-       //        bat 'echo builded....'    
-   //    echo 'This is .... ' + ${env.CDUS_BRANCH}
-       
-      // echo '######################'
-       
-                  
-          }
-       }
+      stage('Downstream') {
+        properties([
+            parameters([string(
+                defaultValue: '', 
+                description: '', 
+                name: 'Latest_Build_Number', 
+                trim: false)
+            ])
+        ])
+        echo "Valueeeee"
+        echo Latest_Build_Number
+    }
     }
     post { 
         always { 
