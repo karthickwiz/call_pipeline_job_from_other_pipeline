@@ -17,12 +17,12 @@ pipeline {
             parameters([string(
                 defaultValue: '', 
                 description: '', 
-                name: 'API_COMPATIBILITY_STEP_REQUIRED', 
+                name: 'hello', 
                 trim: false)
             ])
         ])
         echo "Valueeeee"
-        echo API_COMPATIBILITY_STEP_REQUIRED
+        echo hello
         }
         }
     }
